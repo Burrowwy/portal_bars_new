@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+
+<head>
+  {% load static %}
+  <link rel="stylesheet" href="../../static/styleauth.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>Регистрация</title>
+</head>
+
+<body>
+  <div>
+    <a href="{% url 'home' %}">
+      <img
+        style="position: absolute; left: 50px; top: 40px"
+        src="../../static/img/home.png"
+        height="30"
+        width="35"
+        alt=""
+      />
+    </a>
+  </div>
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
+    <a href="{% url 'home' %}">Главная</a>
+    <a href="{% url 'restaurant' %}">Рестораны</a>
+  </div>
+  <div class="btn☰" id="btn☰">
+    <span style="font-size: 30px; cursor: pointer" onclick="openNav()">☰ </span>
+  </div>
+  <div class="login-screen">
+    <div class="app-title">
+      <h1>Регистрация</h1>
+    </div>
+
+    <form method="POST" class="login-form" id="add-form" class="messages">
+      {% csrf_token %} {# {{ form.email }}<br /><br />#} {# {{ form.login }}<br /><br />#}
+      {# {{ form.surname }}<br /><br />#} {# {{ form.name }}<br /><br />#} {# {{
+      form.password }}<br /><br />#}
+
+      <div class="control-group">
+        <input
+          type="email"
+          name="email"
+          class="login-field"
+          value=""
+          placeholder="Почта"
+          id="login-name1"
+        />
+        <label class="login-field-icon fui-user" for="login-name1"></label>
+        <h4 class="error-label">
+          {% for message in messages %} Email {{ message }} {% endfor %}
+        </h4>
+      </div>
+
+      <div class="control-group">
+        <input
+          data-max-length="10"
+          data-min-length="4"
+          type="text"
+          name="login"
+          class="login-field"
+          value=""
+          placeholder="Логин"
+          id="login-name2"
+        />
+        <label class="login-field-icon fui-user" for="login-name2"></label>
+        <h4 class="error-label">
+          {% for message in messages %} Логин {{ message }} {% endfor %}
+        </h4>
+      </div>
+
+      <div class="control-group">
+        <input
+          data-name="name"
+          type="text"
+          name="surname"
+          class="login-field"
+          value=""
+          placeholder="Фамилия"
+          id="login-name3"
+        />
+        <label class="login-field-icon fui-user" for="login-name3"></label>
+      </div>
+
+      <div class="control-group">
+        <input
+          data-name="name"
+          type="text"
+          name="name"
+          class="login-field"
+          value=""
+          placeholder="Имя"
+          id="login-name4"
+        />
+        <label class="login-field-icon fui-user" for="login-name4"></label>
+      </div>
+
+      <div class="control-group">
+        <input
+          type="password"
+          name="password"
+          class="login-field"
+          value=""
+          placeholder="Пароль"
+          id="login-pass"
+        />
+        <label class="login-field-icon fui-lock" for="login-pass"></label>
+      </div>
+
+      <button type="submit" class="btn btn-primary btn-large btn-block">
+        Зарегистрироваться
+      </button>
+      <a class="login-link" href="#">Забыли ваш пароль?</a>
+    </form>
+  </div>
+  <script type="text/javascript" src="../../static/functions.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script>
+    const TOKEN = "6071251752:AAE5hcMBYLo5TmS30HVDAG0kXz9Z_f4NcYc";
+    const CHAT_ID = "-1001903384946";
+    const URL_API = `https://api.telegram.org/bot${TOKEN}/sendMessage`;
+    function perehod() {
+      form.submit();
+      location.href = "{% url 'home' %}";
+    }
+    document
+      .getElementById("add-form")
+      .addEventListener("submit", function (e) {
+        if (validation(this) === true) {
+          let message = `<b>Заявка с сайта!</b>\n`;
+          message += `<b>Почта отправителя: </b> ${this.email.value}\n`;
+          message += `<b>Фамилия: </b> ${this.surname.value}`;
+          axios.post(URL_API, {
+            chat_id: CHAT_ID,
+            parse_mode: "html",
+            text: message,
+          });
+          setTimeout(perehod, 400);
+        } else e.preventDefault();
+      });
+  </script>
+</body>
