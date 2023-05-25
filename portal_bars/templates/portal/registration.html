@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <head>
   {% load static %}
   <link rel="stylesheet" href="../../static/styleauth.css" />
@@ -32,12 +31,9 @@
     <div class="app-title">
       <h1>Регистрация</h1>
     </div>
-
     <form method="POST" class="login-form" id="add-form" class="messages">
-      {% csrf_token %} {# {{ form.email }}<br /><br />#} {# {{ form.login }}<br /><br />#}
-      {# {{ form.surname }}<br /><br />#} {# {{ form.name }}<br /><br />#} {# {{
-      form.password }}<br /><br />#}
-
+      {% csrf_token %} {# {{ form.email }}<br /><br />#} {# {{ form.login }}<br /><br />#} {# {{
+      form.surname }}<br /><br />#} {# {{ form.name }}<br /><br />#} {# {{ form.password }}<br /><br />#}
       <div class="control-group">
         <input
           type="email"
@@ -48,11 +44,8 @@
           id="login-name1"
         />
         <label class="login-field-icon fui-user" for="login-name1"></label>
-        <h4 class="error-label">
-          {% for message in messages %} Email {{ message }} {% endfor %}
-        </h4>
+        <h4 class="error-label">{% for message in messages %} Email {{ message }} {% endfor %}</h4>
       </div>
-
       <div class="control-group">
         <input
           data-max-length="10"
@@ -65,11 +58,8 @@
           id="login-name2"
         />
         <label class="login-field-icon fui-user" for="login-name2"></label>
-        <h4 class="error-label">
-          {% for message in messages %} Логин {{ message }} {% endfor %}
-        </h4>
+        <h4 class="error-label">{% for message in messages %} Логин {{ message }} {% endfor %}</h4>
       </div>
-
       <div class="control-group">
         <input
           data-name="name"
@@ -82,7 +72,6 @@
         />
         <label class="login-field-icon fui-user" for="login-name3"></label>
       </div>
-
       <div class="control-group">
         <input
           data-name="name"
@@ -95,7 +84,6 @@
         />
         <label class="login-field-icon fui-user" for="login-name4"></label>
       </div>
-
       <div class="control-group">
         <input
           type="password"
@@ -107,10 +95,7 @@
         />
         <label class="login-field-icon fui-lock" for="login-pass"></label>
       </div>
-
-      <button type="submit" class="btn btn-primary btn-large btn-block">
-        Зарегистрироваться
-      </button>
+      <button type="submit" class="btn btn-primary btn-large btn-block">Зарегистрироваться</button>
       <a class="login-link" href="#">Забыли ваш пароль?</a>
     </form>
   </div>
@@ -124,20 +109,18 @@
       form.submit();
       location.href = "{% url 'home' %}";
     }
-    document
-      .getElementById("add-form")
-      .addEventListener("submit", function (e) {
-        if (validation(this) === true) {
-          let message = `<b>Заявка с сайта!</b>\n`;
-          message += `<b>Почта отправителя: </b> ${this.email.value}\n`;
-          message += `<b>Фамилия: </b> ${this.surname.value}`;
-          axios.post(URL_API, {
-            chat_id: CHAT_ID,
-            parse_mode: "html",
-            text: message,
-          });
-          setTimeout(perehod, 400);
-        } else e.preventDefault();
-      });
+    document.getElementById("add-form").addEventListener("submit", function (e) {
+      if (validation(this) === true) {
+        let message = `<b>Заявка с сайта!</b>\n`;
+        message += `<b>Почта отправителя: </b> ${this.email.value}\n`;
+        message += `<b>Фамилия: </b> ${this.surname.value}`;
+        axios.post(URL_API, {
+          chat_id: CHAT_ID,
+          parse_mode: "html",
+          text: message,
+        });
+        setTimeout(perehod, 400);
+      } else e.preventDefault();
+    });
   </script>
 </body>

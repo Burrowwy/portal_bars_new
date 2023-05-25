@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="">
+<html lang="ru">
   <head>
     <link rel="stylesheet" href="../../static/style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -9,9 +9,9 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
-
     <title>Рестораны</title>
   </head>
+
   <style>
     h1 {
       font-family: "Roboto", sans-serif;
@@ -26,6 +26,7 @@
       text-decoration: none;
     }
   </style>
+
   <body>
     <a href="{% url 'home' %}">
       <img
@@ -42,37 +43,29 @@
       <a href="{% url 'authorization' %}">Войти</a>
       <a href="{% url 'registration' %}">Регистрация</a>
     </div>
-
     <div class="btn☰" id="btn☰">
-      <span style="font-size: 30px; cursor: pointer" onclick="openNav()"
-        >☰</span
-      >
+      <span style="font-size: 30px; cursor: pointer" onclick="openNav()">☰</span>
     </div>
     <h1>Лучшие бары Москвы</h1>
     <br />
     <h2 style="color: #f1f1f1; text-align: center">
-      Поможем подобрать идеальное место для реализации задуманной вами
-      вечеринки, свидания или афтер-пати
+      Поможем подобрать идеальное место для реализации задуманной вами вечеринки, свидания или
+      афтер-пати
     </h2>
     <br />
     <h3 style="color: #f1f1f1">
-      В Москве каждый сможет найти любимый бар, где можно отвести душу, танцуя
-      под новые треки, выпить и забыть о всех неприятностях жизни. Варианты
-      найдутся как для искушенных гурманов, пропадающих за книжечкой в руках,
-      так и для любителей шумных вечеринок до самого утра
+      В Москве каждый сможет найти любимый бар, где можно отвести душу, танцуя под новые треки,
+      выпить и забыть о всех неприятностях жизни. Варианты найдутся как для искушенных гурманов,
+      пропадающих за книжечкой в руках, так и для любителей шумных вечеринок до самого утра
     </h3>
     <br />
     <h4 style="color: #f1f1f1">
-      <strong
-        >Наш сервис поможет вам определиться с выбором наилучшего места</strong
-      >
+      <strong> Наш сервис поможет вам определиться с выбором наилучшего места </strong>
     </h4>
-    <h5 style="color: #f1f1f1">
-      Ниже представлен список самых популярных баров Москвы:
-    </h5>
+    <h5 style="color: #f1f1f1">Ниже представлен список самых популярных баров Москвы:</h5>
     <div class="li">
       <ul style="color: #d99e4f">
-        <li><a href="https://bargipsy.com/">VK Gipsy </a></li>
+        <li><a href="https://bargipsy.com/">VK Gipsy</a></li>
         <li><a href="https://msk.coyoteugly.ru/">Coyote Ugly</a></li>
         <li><a href="https://rvbar.ru/">Руки ВВерх!</a></li>
         <li><a href="https://www.moscow-city.club/team-3">MYTH 18+</a></li>
@@ -80,7 +73,6 @@
         <li><a href="https://bardisco90.ru/">Disco 90</a></li>
       </ul>
     </div>
-    <h6></h6>
     <script>
       function openNav() {
         document.getElementById("mySidenav").style.width = "250px";

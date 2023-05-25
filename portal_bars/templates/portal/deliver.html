@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-
 <head>
-  {% load static %}
   <link rel="stylesheet" href="../../static/style.css" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <title></title>
+  <title>Доставка</title>
 </head>
 <body>
   <div>
-    {% for project in projects %}
     <a href="{% url 'home' %}">
       <img
         style="position: absolute; left: 50px; top: 40px"
@@ -19,7 +15,6 @@
         alt=""
       />
     </a>
-    {% endfor %}
   </div>
   <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">×</a>
@@ -31,14 +26,13 @@
   </div>
 
   <div class="container">
-    <a href="https://www.w3docs.com/" class="button"
-      >Заказать доставку на дом</a
-    >
+    <a href="https://www.w3docs.com/" class="button"> Заказать доставку на дом </a>
     <div class="container-text">
-      <div><strong>Помощь в выборе подходящего меню</strong></div>
+      <div>
+        <strong>Помощь в выборе подходящего меню</strong>
+      </div>
     </div>
   </div>
-
   <script>
     function openNav() {
       document.getElementById("mySidenav").style.width = "250px";
