@@ -30,26 +30,26 @@
       <span style="font-size: 30px; cursor: pointer" onclick="openNav()">☰</span>
     </div>
     <div class="wrapper">
-      <form>
-        <div class="form">
-          <div action="#" id="form" class="form_body">
-            <h1 class="form_title">Отправка данных на почту</h1>
-            <div class="form_item">
-              <label for="formName" class="form_label">Имя:</label>
-              <input id="formName" type="text" name="name" class="form_input _req" />
-            </div>
-            <div class="form_item">
-              <label for="formEmail" class="form_label">E-mail:</label>
-              <input id="formEmail" type="text" name="email" class="form_input _req _email" />
-            </div>
-            <div class="form_item">
-              <label for="formMessage" class="form_label"> Ваше сообщение: </label>
-              <textarea name="Message" id="formMessage" class="form_input"></textarea>
-            </div>
-            <button type="submit" class="form_button">Отправить</button>
+      <div class="form">
+        <div action="#" id="form" class="form_body">
+          <h1 class="form_title">Отправка данных на почту</h1>
+          <div class="form_item">
+            <label for="formName" class="form_label">Имя:</label>
+            <input id="name" type="text" name="name" class="form_input _req" />
           </div>
+          <div class="form_item">
+            <label for="formEmail" class="form_label">E-mail:</label>
+            <input id="email" type="text" name="email" class="form_input _req _email" />
+          </div>
+          <div class="form_item">
+            <label for="formMessage" class="form_label"> Ваше сообщение: </label>
+            <textarea name="Message" id="message" class="form_input"></textarea>
+          </div>
+          <button type="submit" class="form_button" onclick="saveToLocalStorage()">
+            Отправить
+          </button>
         </div>
-      </form>
+      </div>
     </div>
     <script>
       function openNav() {
@@ -62,6 +62,6 @@
         document.getElementById("btn☰").style.opacity = "1";
       }
     </script>
-    <script src="../../static/requestMessage.js"></script>
+    <script src="../../static/saveToLocalStorage.js"></script>
   </body>
 </html>
