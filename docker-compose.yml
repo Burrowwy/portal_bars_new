@@ -1,0 +1,14 @@
+version: '4.20.0'
+services:
+   web:
+       build: .
+       restart: always
+       ports:
+         - 8000:8000
+
+
+
+
+
+
+
